@@ -1,0 +1,23 @@
+{
+	"SMDVersion": "2.0",
+	"id": "http://tables.googlelabs.com/api/query",
+	"description": "Google Tables AJAX API",
+
+	transport: "JSONP",
+	envelope: "URL",
+	additionalParameters: true,
+
+	callbackParamName: "jsonCallback",
+//	target: "http://tables.googlelabs.com/api/query",
+	
+	parameters: [
+	  { "name": "sql", "type": "string", optional: false, "default":"" },
+	  { "name": "jsonCallback", "type":"string", optional:true } 
+	],
+
+	services: {
+        "tableQuery": {
+          "target": "http://tables.googlelabs.com/api/query"
+        }
+	}
+}

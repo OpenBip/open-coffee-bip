@@ -1,0 +1,111 @@
+<div style="height: 100%; width: 100%; border: 0;">
+  <div style="height: 100%; width: 100%; border: 0; background-color: #f7fcff;"
+      dojoType="dijit.layout.BorderContainer"
+      liveSplitters="false" design="sidebar">
+    <div dojoType="dijit.layout.ContentPane" region="top"><b>Visualizing Jim's Mild Coffee Shop Addiction</b></div>
+    
+    <div dojoType="dijit.layout.ContentPane" region="leading"
+        style="width: 520px;">
+
+      <center>
+        <div dojoAttachPoint="mapContainer"
+            style="height: 450px; width: 500px; border: thin solid black; padding: 3px;"></div>
+      </center>
+      
+      <center>
+        <input type="checkbox" checked dojoAttachPoint="queryMON" /> Mondays
+        <input type="checkbox" checked dojoAttachPoint="queryTUE" /> Tuesdays
+        <input type="checkbox" checked dojoAttachPoint="queryWED" /> Wednesdays
+        <input type="checkbox" checked dojoAttachPoint="queryTHU" /> Thursdays<br />
+        <input type="checkbox" checked dojoAttachPoint="queryFRI" /> Fridays
+        <input type="checkbox" checked dojoAttachPoint="querySAT" /> Saturdays
+        <input type="checkbox" checked dojoAttachPoint="querySUN" /> Sundays
+      </center>
+      
+      <br />
+      
+      <center>
+        <b>Start:</b> <input type="text" dojoAttachPoint="queryStartDate" value="6/30/2009" style="width: 75px;"/>
+        <b>End:</b> <input type="text" dojoAttachPoint="queryEndDate" value="10/28/2010" style="width: 75px;"/>
+      </center>
+      
+      <br />
+      
+      <div style="text-align: left; margin-left: auto; margin-right: auto;">
+        <input type="checkbox" checked dojoAttachPoint="queryERC37" /> ESPRESSO ROYALE #37 - 2603 Plymouth Road, Ann Arbor, MI<br />
+        <input type="checkbox" checked dojoAttachPoint="queryERC6" /> ESPRESSO ROYALE #6 - 324 S State St., Ann Arbor, MI<br />
+        <input type="checkbox" checked dojoAttachPoint="queryERC9" /> ESPRESSO ROYALE #9 - 214 S Main St., Ann Arbor, MI<br />
+        <input type="checkbox" checked dojoAttachPoint="queryERC40" /> ESPRESSO ROYALE #40, "1101 S. University St., Ann Arbor, MI<br />
+        <input type="checkbox" checked dojoAttachPoint="querySW_PLY" /> SWEETWATERS COFFEE & TEA - 3393 Plymouth Road, Ann Arbor, MI<br />
+        <input type="checkbox" checked dojoAttachPoint="querySW_KT" /> SWEETWATERS CAFE-ANN A - 407 N Fifth Ave, Ann Arbor, MI<br />
+        <input type="checkbox" checked dojoAttachPoint="queryBGBY155" /> BIGGBY COFFEE #155 - 539 E Liberty Avenue, Ann Arbor, MI<br />
+        <input type="checkbox" checked dojoAttachPoint="queryBGBY274" /> BIGGBY COFFEE #274 - 1741 Plymouth Road, Ann Arbor, MI<br />
+        <input type="checkbox" checked dojoAttachPoint="querySTAR" /> STARBUCKS - 4585 Washtenaw Ave, #3, Ann Arbor, MI<br />
+        <input type="checkbox" checked dojoAttachPoint="queryMIGHTY" /> MIGHTY GOOD COFFEE COMPAN - 217 N. Main St., Ann Arbor, MI<br />
+      </div>
+      
+      <br />
+      
+      <center>
+        <input type="button" dojoAttachPoint="buttonReload" value="Load data set" />
+      </center>
+    </div>
+    
+    <div dojoType="dijit.layout.TabContainer" region="center">
+            
+      <div dojoType="dijit.layout.ContentPane" title="Totals">
+        <div dojoAttachPoint="totalsChartContainer"></div>
+      </div>
+
+      <div dojoType="dijit.layout.ContentPane" title="Averages">
+        <div dojoAttachPoint="averagesChartContainer"></div>
+      </div>
+      
+      <div dojoType="dijit.layout.ContentPane" title="Calculations">
+        <b>Total Spent: </b><span dojoAttachPoint="totalGrand"></span><br />
+        <div style="margin-left: 15px;">
+          ERC37: <span dojoAttachPoint="totalERC37"></span><br />
+          ERC6: <span dojoAttachPoint="totalERC6"></span><br />
+          ERC9: <span dojoAttachPoint="totalERC9"></span><br />
+          ERC40: <span dojoAttachPoint="totalERC40"></span><br />
+          SW PLY: <span dojoAttachPoint="totalSW_PLY"></span><br />
+          SW_KT: <span dojoAttachPoint="totalSW_KT"></span><br />
+          BGBY 155: <span dojoAttachPoint="totalBGBY155"></span><br />
+          BGBY 274: <span dojoAttachPoint="totalBGBY274"></span><br />
+          STAR: <span dojoAttachPoint="totalSTAR"></span><br />
+          MIGHTY: <span dojoAttachPoint="totalMIGHTY"></span><br />
+        </div>
+        <b>Avg Spent: </b><span dojoAttachPoint="totalAvg"></span><br />
+        <div style="margin-left: 15px;">
+          ERC37: <span dojoAttachPoint="avgERC37"></span><br />
+          ERC6: <span dojoAttachPoint="avgERC6"></span><br />
+          ERC9: <span dojoAttachPoint="avgERC9"></span><br />
+          ERC40: <span dojoAttachPoint="avgERC40"></span><br />
+          SW PLY: <span dojoAttachPoint="avgSW_PLY"></span><br />
+          SW_KT: <span dojoAttachPoint="avgSW_KT"></span><br />
+          BGBY 155: <span dojoAttachPoint="avgBGBY155"></span><br />
+          BGBY 274: <span dojoAttachPoint="avgBGBY274"></span><br />
+          STAR: <span dojoAttachPoint="avgSTAR"></span><br />
+          MIGHTY: <span dojoAttachPoint="avgMIGHTY"></span><br />
+        </div>
+      </div>
+    </div>
+    
+    <div dojoType="dijit.layout.ContentPane" region="bottom" splitter="true" style="height: 200px;">
+        <b><span dojoAttachPoint="numTransactions"></span> Raw Transactions:</b><br />
+      <br />
+      <table style="width: 100%;">
+        <thead>
+          <tr>
+            <th style="font-weight: bold;">Store</th>
+            <th style="font-weight: bold; text-align: right; padding-right: 8px;">Amount</th>
+            <th style="font-weight: bold;">Date</th>
+            <th style="font-weight: bold;">Day Of Week</th>
+          </tr>
+        </thead>
+        <tbody dojoAttachPoint="rawTransactions">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
